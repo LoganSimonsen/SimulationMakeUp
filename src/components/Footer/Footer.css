@@ -1,0 +1,31 @@
+.footer {
+  bottom: 0px;
+  position: absolute;
+  height: 100px;
+  background: lightgray;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  color: black;
+}
+.footer:any-link {
+  text-decoration: none;
+}
+
+.loginButton {
+  padding: 25px;
+  background: navy;
+  min-width: 40px;
+  text-align: center;
+  margin: 0 auto;
+}
+.loginButton > a {
+  text-decoration: none;
+  color: white;
+}
+.welcome {
+  position: fixed;
+  right: 2px;
+  bottom: 5px;
+}

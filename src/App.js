@@ -11,6 +11,7 @@ class App extends Component {
       bin: [],
       items: {}
     };
+    this.deleteBin = this.deleteBin.bind(this);
   }
 
   componentDidMount() {
@@ -22,6 +23,11 @@ class App extends Component {
     });
   }
 
+  deleteBin(id) {
+    axios
+      .delete(`/api/deleteBin/${id}`)
+      .then(response => console.log(response));
+  }
   render() {
     console.log(this.state.bin);
     let results =
@@ -32,6 +38,7 @@ class App extends Component {
             <div className="results">{obj.user_id} | </div>
             <div className="results">{obj.bin_id} | </div>
             <div className="results">{obj.bin_name} | </div>
+            <button onClick={() => this.deleteBin(obj.bin_id)}>DELETE</button>
           </div>
         );
       });
@@ -42,6 +49,15 @@ class App extends Component {
           <h1>GET</h1>
           <div>{results}</div>
         </div>
+        <div>
+          <h1>POST</h1>
+          <form type="submit">
+            Create New Bin:
+            <input placeholder="Bin Name Goes Here" />
+            <button>submit</button>
+          </form>
+        </div>
+
         <Footer />
       </div>
     );

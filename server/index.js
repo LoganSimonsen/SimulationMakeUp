@@ -106,7 +106,8 @@ app.get("/logout", (req, res) => {
 //get bins
 app.get("/api/bin/:id", bc.getBin);
 app.post("/api/binPost/:id", bc.createBin); //create blog
-app.delete("/api/deleteBin/:id", bc.deleteBin); //delete post
+app.delete("/api/deleteBin", bc.deleteBin); //delete post
+app.put("/api/changeName/:id", bc.changeName);
 
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
